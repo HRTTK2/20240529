@@ -32,7 +32,12 @@ for (var num = 9; num > 0; num--) {
 var next = 1;
 document.remove = function (id) {
   if (id === next) {
-    document.getElementById("main").removeChild(document.getElementById(id));
+    const element = document.getElementById(id);
+    element.style.opacity = "0";
+
+    setTimeout(() => {
+      document.getElementById("main").removeChild(element);
+    }, 500);
     next = next + 1;
   }
 };
